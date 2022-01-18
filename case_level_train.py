@@ -8,7 +8,6 @@ from torch.utils.data import DataLoader, Dataset
 import torch.nn as nn
 from torchvision import models
 from os.path import join
-from tqdm import tqdm
 import torch.optim as optim
 import json,os, csv
 import random
@@ -18,7 +17,6 @@ import argparse
 from sklearn.model_selection import train_test_split
 from torch.optim.lr_scheduler import StepLR
 from torchvision import transforms
-from tqdm.notebook import tqdm
 
 ## Device
 device = 'cuda'
@@ -184,7 +182,7 @@ for epoch in range(epochs):
     epoch_loss = 0
     epoch_accuracy = 0
 
-    for data, label in tqdm(train_loader):
+    for data, label in train_loader:
         data = data.to(device)
         label = label.to(device)
 

@@ -12,7 +12,7 @@ class Config:
     self.anchor_sizes = ((8, 16, 32, 64),)
     self.anchor_aspect_ratios = ((0.5, 1.0, 2.0),)
     self.roi_output_size = 7
-    self.box_score_threshold = 0.3
+    self.box_score_threshold = 0.1
     self.image_size = (512, 512)
 
     self.n_epoch = 20

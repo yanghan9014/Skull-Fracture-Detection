@@ -51,7 +51,7 @@ def predict_coord(config, model, df, dataloader:DataLoader, device=torch.device(
       print("pred_boxes:", pred_boxes)
       print("ground truth", gen_target(gt_coords))
       print()
-      plot_boxes(imgs, output, gt_coords, config.box_score_threshold)
+      # plot_boxes(imgs, output, gt_coords, config.box_score_threshold)
   TP, FN, FP, F1_score = cal_F1(predicts, ground_truths, '')
   print(f"TP: {TP}, FN: {FN}, FP: {FP}, F1 score: {F1_score}")
   return F1_score
