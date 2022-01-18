@@ -3,6 +3,9 @@
 # How to run your code?
 1. bash case_level_train.sh <training_data_directory> <json_file> <test_data_directory> out.csv
 > example: bash case_level_train.sh skull/train skull/records_train.json skull/test out.csv
+2. cd FasterRCNN
+3. bash coords_train.sh <train_data_directory> <test_data_directory> <json_file> <output_csv_file>
+> example bash coords_train.sh ../skull/train ../skull/test ../skull/records_train.json result.csv
 
     
 # Usage
