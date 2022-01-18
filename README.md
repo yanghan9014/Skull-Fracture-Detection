@@ -2,9 +2,8 @@
 
 # How to run your code?
 > TODO: Please provide example scripts to run your code. For example, 
-> 1. python3 preprocessing.py <Path to Blood_data>
-> 2. python3 inference.py <Path to the output csv file>
-> ...
+> 1. bash case_level_train.sh <training data directory> <jsonfile> <test data directory> out.csv
+> example: bash case_level_train.sh skull/train skull/records_train.json skull/test out.csv
 
     
 # Usage
