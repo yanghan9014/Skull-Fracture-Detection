@@ -1,7 +1,7 @@
 # DLCV Final Project ( Skull Fractracture Detection )
 
 # How to run your code?
-> 1. bash case_level_train.sh **training data directory** **jsonfile** **test data directory** out.csv
+> 1. bash case_level_train.sh <training_data_directory> <jsonfile> <test_data_directory> out.csv
 
 > example: bash case_level_train.sh skull/train skull/records_train.json skull/test out.csv
 
