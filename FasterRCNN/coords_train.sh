@@ -1,1 +1,1 @@
-python3 -t $1 -v $2 -j $3 -o $4
+python3 main.py -t $1 -v $2 -j $3 -o $4

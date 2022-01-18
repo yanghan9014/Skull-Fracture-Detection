@@ -207,6 +207,31 @@ def get_pos_patient(config:Config):
   test_df = test_df.reset_index()
   return test_df.loc[test_df["labels"]!=0].reset_index(), csv_df
 
-
-
-  
+def revise_label(output_csv):
+  fin = open(output_csv, 'r')
+  fin.readline()
+  lines = fin.readlines()
+  data = {}
+  for line in lines:
+    row = line.strip().split(",")
+    patient = row[0][:20]
+    data.setdefault(patient, []).append(row[1])
+  fin.close()
+  negative_patients = []
+  for key in data:
+    all_false = True
+    for label in data[key]:
+      if int(label)==0 or int(label)==1:
+        all_false = False
+    if all_false:
+      negative_patients.append(key)
+  with open(output_csv, 'w') as fout:
+    fout.write("id,label,coords\n")
+    for line in lines:
+      if line[:20] in negative_patients:
+        print(line[:20])
+        label_ind = line.find(",")+1
+        new_line = line[:label_ind]+"0"+line[line.find(",", label_ind):]
+        fout.write(new_line)
+      else:
+        fout.write(line)

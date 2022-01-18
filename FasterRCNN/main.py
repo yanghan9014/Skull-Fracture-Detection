@@ -11,7 +11,7 @@ import os
 
 from config import Config
 from dataset import SkullDataset, SkullValDataset
-from utils import split_data, get_pos_patient, convert
+from utils import split_data, get_pos_patient, convert, revise_label
 from worker import Worker
 from validation.val import predict
 
@@ -66,7 +66,7 @@ if __name__  == "__main__":
   config.train_dir = args.train
   config.test_dir = args.validation
   config.train_json = args.json
-  w = main(args, device)
+  w = main(config, device)
   # net = torchvision.models.resnet152(pretrained=True)
   # modules = list(net.children())[:-2]
   # backbone = torch.nn.Sequential(*modules)
@@ -77,3 +77,4 @@ if __name__  == "__main__":
   # model = torchvision.models.detection.FasterRCNN(backbone, num_classes=2, rpn_anchor_generator=anchor_generator, box_roi_pool=roi_pooler)
   # model.load_state_dict(torch.load("checkpoints\\resnet\epoch_12.pth"))
   predict_coordinate(config, w.model, device)
+  revise_label(config.output_csv_path)
